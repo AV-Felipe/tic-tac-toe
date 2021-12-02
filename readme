@@ -1,0 +1,15 @@
+Utilizando o conceito de matrizes, elabore uma página html para o jogo da velha. 
+
+Regras: 
+
+a. O jogo possui dois jogadores “O” e “X”; 
+b. O jogador “O” sempre inicia a partida; 
+c. Condições de vitória: Uma linha inteira, uma coluna inteira ou uma diagonal inteira preenchidos com “O” ou “X”. 
+
+Exemplo da Matriz: 
+
+[ 
+   [“Posição 0x0”, ”Posição 0x1”, ”Posição 0x2”], 
+   [“Posição 1x0”, “Posição 1x1”, “Posição 1x2”], 
+   [“Posição 2x0”, “Posição 2x1”, “Posição 2x2”] 
+] 
