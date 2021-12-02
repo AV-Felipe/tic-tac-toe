@@ -1,5 +1,5 @@
 // GLOBAL VARIABLES
-const gameBoard = [['a', 'a', 'a'], ['a', 'a', 'a'], ['a', 'a', 'a']];
+const gameBoard = [['1', '2', '3'], ['4', '5', '6'], ['7', '8', '9']];
 let turn = 'o';
 
 const winningConditions = [
@@ -30,7 +30,26 @@ const boardFields = [[l1c1, l1c2, l1c3], [l2c1, l2c2, l2c3], [l3c1, l3c2, l3c3]]
 function fieldSelector(l, c) {
     if(turn === 'o'){
         boardFields[l][c].innerHTML = 'O';
+        boardFields[l][c].setAttribute('disabled', '');
+        gameBoard[l][c] = 'o';
+        isWinner('o');
         console.log(gameBoard[l][c]);
     }
 }
 
+function isWinner(player) {
+    if(
+        gameBoard[0][0] === gameBoard[0][1] && gameBoard[0][1] === gameBoard[0][2] ||
+        gameBoard[1][0] === gameBoard[1][1] && gameBoard[1][1] === gameBoard[1][2] ||
+        gameBoard[2][0] === gameBoard[2][1] && gameBoard[2][1] === gameBoard[2][2] ||
+        gameBoard[0][0] === gameBoard[1][0] && gameBoard[1][0] === gameBoard[2][0] ||
+        gameBoard[0][1] === gameBoard[1][1] && gameBoard[1][1] === gameBoard[2][1] ||
+        gameBoard[0][2] === gameBoard[1][2] && gameBoard[1][2] === gameBoard[2][2] ||
+        gameBoard[0][0] === gameBoard[1][1] && gameBoard[1][1] === gameBoard[2][2] ||
+        gameBoard[0][2] === gameBoard[1][1] && gameBoard[1][1] === gameBoard[2][0]
+    ){
+        console.log(`${player} ganhou`);
+    }else{
+        console.log('e agora?')
+    }
+}
