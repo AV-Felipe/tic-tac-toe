@@ -33,6 +33,14 @@ function fieldSelector(l, c) {
         boardFields[l][c].setAttribute('disabled', '');
         gameBoard[l][c] = 'o';
         isWinner('o');
+        turn = 'x';
+        console.log(gameBoard[l][c]);
+    }else{
+        boardFields[l][c].innerHTML = 'X';
+        boardFields[l][c].setAttribute('disabled', '');
+        gameBoard[l][c] = 'x';
+        isWinner('x');
+        turn = 'o';
         console.log(gameBoard[l][c]);
     }
 }
@@ -49,6 +57,32 @@ function isWinner(player) {
         gameBoard[0][2] === gameBoard[1][1] && gameBoard[1][1] === gameBoard[2][0]
     ){
         console.log(`${player} ganhou`);
+        if(player === 'o'){
+
+            boardFields.forEach(a => {
+                    a.forEach(b =>{
+                        b.setAttribute('disabled', '');
+                    });    
+                });
+
+            l1c2.style.background = 'black';
+            l2c1.style.background = 'black';
+            l2c3.style.background = 'black';
+            l3c2.style.background = 'black';
+        }else{
+
+            boardFields.forEach(a => {
+                a.forEach(b =>{
+                    b.setAttribute('disabled', '');
+                });    
+            });
+            
+            l1c1.style.background = 'black';
+            l1c3.style.background = 'black';
+            l2c2.style.background = 'black';
+            l3c1.style.background = 'black';
+            l3c3.style.background = 'black';
+        }
     }else{
         console.log('e agora?')
     }
